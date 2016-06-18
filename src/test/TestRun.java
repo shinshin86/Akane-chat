@@ -10,11 +10,10 @@ public class TestRun {
         Akane akaneInstance = Akane.getInstance();
         Scanner sc = new Scanner(System.in);
         String sendWord;
-        
         do{
             sendWord = sc.nextLine();
             System.out.println(akaneInstance.toSay(sendWord));
-        }while(!(str.equals(exitCommand)));
+        }while(!(sendWord.equals(exitCommand)));
         System.out.println("Akane is sleeping.....zzz");
     }
 }
