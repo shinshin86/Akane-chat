@@ -1,6 +1,9 @@
 package test;
 
 import java.util.Scanner;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import main.akane.Akane;
 
 public class TestRun {
@@ -9,10 +12,14 @@ public class TestRun {
         System.out.println("TEST START!!!");
         Akane akaneInstance = Akane.getInstance();
         Scanner sc = new Scanner(System.in);
-        String sendWord;
+        String sendWord;        
         do{
             sendWord = sc.nextLine();
-            System.out.println(akaneInstance.toSay(sendWord));
+            try {
+				System.out.println(akaneInstance.toSay(sendWord));
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
+			}
         }while(!(sendWord.equals(exitCommand)));
         System.out.println("Akane is sleeping.....zzz");
     }
